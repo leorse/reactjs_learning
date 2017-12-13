@@ -1,29 +1,6 @@
 import React from 'react';
 
 class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            data:
-            [
-                {
-                    "id":1,
-                    "name":"Foo",
-                    "age":"20"
-                },
-                {
-                    "id":2,
-                    "name":"MonNom",
-                    "age":"25"
-                },
-                {
-                    "id":3,
-                    "name":"Encore",
-                    "age":"30"
-                }
-            ]
-        }
-    }
    render() {
        var i=10;
        var myStyle = {
@@ -32,16 +9,17 @@ class App extends React.Component {
        };
       return (
         <div>
-        <Header/>
-        <table>
-            <tbody>
-                {this.state.data.map((person, i)=><TableRow key={i} data={person} />)}
-            </tbody>
-        </table>
-     </div>
+            <h1>{this.props.headerProp}</h1>
+            <h2>{this.props.contentProp}</h2>
+         </div>
       );
    }
 }
+
+App.defaultProps = {
+    headerProp: "Header from props...",
+    contentProp:"Content from props..."
+ }
 
 class Header extends React.Component {
     render() {
