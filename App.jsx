@@ -1,12 +1,14 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class App extends React.Component {
     constructor() {
         super();
-        this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+        this.findDomNodeHandler = this.findDomNodeHandler.bind(this);
      };
-     forceUpdateHandler() {
-         this.forceUpdate();
+     findDomNodeHandler() {
+         var myDiv = document.getElementById('monDiv');
+         ReactDOM.findDOMNode(myDiv).style.color = 'red';
      };
    render() {
        var i=10;
@@ -16,8 +18,8 @@ class App extends React.Component {
        };
       return (
         <div>
-            <button onClick={this.forceUpdateHandler}>set state</button>
-            <h4>random number:{Math.random()}</h4>
+            <button onClick={this.findDomNodeHandler}>trouver NODE</button>
+            <div id="monDiv">noeud</div>
          </div>
       );
    };
